@@ -1,4 +1,4 @@
-import { Freezable } from '../../index.js';
+import Freezable from '../../src/util/Freezable.js';
 
 describe('Freezable', () => {
   /** @type {Freezable} */
@@ -32,7 +32,7 @@ describe('Freezable', () => {
       expect(freezable.isFrozen()).toBe(true);
       expect(() => {
         freezable.freeze();
-      }).not.toThrowError();
+      }).not.toThrow();
       expect(freezable.isFrozen()).toBe(true);
     });
   });
@@ -49,13 +49,13 @@ describe('Freezable', () => {
     test('throws an error if the Freezable is frozen', () => {
       expect(() => {
         freezable.throwIfFrozen();
-      }).not.toThrowError();
+      }).not.toThrow();
 
       freezable.freeze();
 
       expect(() => {
         freezable.throwIfFrozen();
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -77,7 +77,7 @@ describe('Freezable', () => {
       expect(freezable.isFrozen()).toBe(false);
       expect(() => {
         freezable.unfreeze();
-      }).not.toThrowError();
+      }).not.toThrow();
       expect(freezable.isFrozen()).toBe(false);
     });
   });

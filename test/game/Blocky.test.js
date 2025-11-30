@@ -1,12 +1,11 @@
 import {jest} from '@jest/globals';
-import {
-  Blocky,
-  BlockyState,
-  BlockyEvent,
-  Event,
-  EventBus,
-  Move
-} from '../../index.js';
+
+import Blocky from '../../src/game/Blocky.js';
+import BlockyState from '../../src/game/BlockyState.js';
+import BlockyEvent from '../../src/game/BlockyEvent.js';
+import Event from '../../src/game/event/Event.js';
+import EventBus from '../../src/game/event/EventBus.js';
+import Move from '../../src/game/structs/Move.js';
 
 const mockTimer = {
   delayNextTick: jest.fn(),

@@ -1,5 +1,6 @@
 import {jest} from '@jest/globals';
-import { Coord, Move } from '../../index.js';
+import Coord from '../../src/game/structs/Coord.js';
+import Move from '../../src/game/structs/Move.js';
 
 describe('Move', () => {
   /** @type {Move} */
@@ -115,7 +116,7 @@ describe('Move', () => {
     test('throws an error if frozen', () => {
       expect(() => {
         move.freeze().row = 4;
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -128,7 +129,7 @@ describe('Move', () => {
     test('throws an error if frozen', () => {
       expect(() => {
         move.freeze().col = 4;
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -141,7 +142,7 @@ describe('Move', () => {
     test('throws an error if frozen', () => {
       expect(() => {
         move.freeze().rotation = 4;
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -170,7 +171,7 @@ describe('Move', () => {
     test('throws an error if frozen', () => {
       expect(() => {
         move.freeze().set(offset, rotation);
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -187,7 +188,7 @@ describe('Move', () => {
     test('throws an error if frozen', () => {
       expect(() => {
         move.freeze().shift(new Coord(1, 2));
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -212,7 +213,7 @@ describe('Move', () => {
     test('throws an error if frozen', () => {
       expect(() => {
         move.freeze().add(other);
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -229,7 +230,7 @@ describe('Move', () => {
     test('throws an error if frozen', () => {
       expect(() => {
         move.freeze().rotate(5);
-      }).toThrowError();
+      }).toThrow();
     });
   });
 

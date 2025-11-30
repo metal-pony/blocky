@@ -3,7 +3,7 @@ import * as common from '../../src/util/common.js';
 describe('bounded', () => {
   describe('when min > max', () => {
     test('throws an error', () => {
-      expect(() => common.bounded(0, 1, 0)).toThrowError();
+      expect(() => common.bounded(0, 1, 0)).toThrow();
     });
   });
 
@@ -34,7 +34,7 @@ describe('validation', () => {
 
     test('throws an error if the value is negative', () => {
       [-1, -2, -3].forEach((value) => {
-        expect(() => common.validateNonNegative(value, 'test')).toThrowError();
+        expect(() => common.validateNonNegative(value, 'test')).toThrow();
       });
     });
   });
@@ -48,7 +48,7 @@ describe('validation', () => {
 
     test('throws an error if the value is zero or negative', () => {
       [0, -1].forEach((value) => {
-        expect(() => common.validatePositive(value, 'test')).toThrowError();
+        expect(() => common.validatePositive(value, 'test')).toThrow();
       });
     });
   });
@@ -62,7 +62,7 @@ describe('validation', () => {
 
     test('throws an error if the value is zero or positive', () => {
       [0, 1, 2, 3].forEach((value) => {
-        expect(() => common.validateNegative(value, 'test')).toThrowError();
+        expect(() => common.validateNegative(value, 'test')).toThrow();
       });
     });
   });
@@ -76,7 +76,7 @@ describe('validation', () => {
 
     test('throws an error if the value is not an integer', () => {
       [1.5, -1.5].forEach((value) => {
-        expect(() => common.validateInteger(value, 'test')).toThrowError();
+        expect(() => common.validateInteger(value, 'test')).toThrow();
       });
     });
   });
@@ -90,7 +90,7 @@ describe('validation', () => {
 
     test('throws an error if the value is zero, negative, or not an integer', () => {
       [0, -1, 1.5].forEach((value) => {
-        expect(() => common.validatePositiveInteger(value, 'test')).toThrowError();
+        expect(() => common.validatePositiveInteger(value, 'test')).toThrow();
       });
     });
   });
@@ -104,7 +104,7 @@ describe('validation', () => {
 
     test('throws an error if the value is zero, positive, or not an integer', () => {
       [0, 1, -1.5].forEach((value) => {
-        expect(() => common.validateNegativeInteger(value, 'test')).toThrowError();
+        expect(() => common.validateNegativeInteger(value, 'test')).toThrow();
       });
     });
   });

@@ -1,4 +1,4 @@
-import { ShapeQueue } from "../../index";
+import ShapeQueue from '../../src/game/ShapeQueue.js';
 
 describe("ShapeQueue", () => {
   /** @type {ShapeQueue} */

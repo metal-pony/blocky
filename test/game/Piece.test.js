@@ -1,12 +1,10 @@
-import {
-  BlockyState,
-  Coord,
-  Move,
-  Piece,
-  Position,
-  BlockyShape as Shape,
-  ZMod
-} from '../../index.js';
+import BlockyState from '../../src/game/BlockyState.js';
+import {Shape} from '../../src/game/Shape.js';
+import Piece from '../../src/game/Piece.js';
+import Coord from '../../src/game/structs/Coord.js';
+import Position from '../../src/game/structs/Position.js';
+import Move from '../../src/game/structs/Move.js';
+import ZMod from '../../src/util/ZMod.js';
 
 describe('Piece', () => {
   /** @type {Piece} */

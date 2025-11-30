@@ -1,9 +1,7 @@
 import {jest} from '@jest/globals';
-import {
-  Coord,
-  Move,
-  Position
-} from '../../index.js';
+import Coord from '../../src/game/structs/Coord.js';
+import Position from '../../src/game/structs/Position.js';
+import Move from '../../src/game/structs/Move.js';
 
 describe('Position', () => {
   /** @type {Position} */
