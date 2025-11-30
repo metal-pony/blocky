@@ -1,9 +1,8 @@
 import {jest} from '@jest/globals';
-import {
-  Blocky,
-  BlockyEvent,
-  BlockyState
-} from '../../index.js';
+
+import Blocky from '../../src/game/Blocky.js';
+import BlockyState from '../../src/game/BlockyState.js';
+import BlockyEvent from '../../src/game/BlockyEvent.js';
 
 describe('BlockyEvent', () => {
   /** @type {BlockyEvent} */

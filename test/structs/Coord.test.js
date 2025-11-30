@@ -1,5 +1,5 @@
 import {jest} from '@jest/globals';
-import { Coord } from '../../index.js';
+import Coord from '../../src/game/structs/Coord.js';
 
 describe('Coord', () => {
   describe('static', () => {
@@ -15,10 +15,10 @@ describe('Coord', () => {
       expect(coord.isFrozen()).toBe(true);
       expect(() => {
         coord.row = 1;
-      }).toThrowError();
+      }).toThrow();
       expect(() => {
         coord.col = 1;
-      }).toThrowError();
+      }).toThrow();
     };
 
     describe('preset coords', () => {
@@ -136,10 +136,10 @@ describe('Coord', () => {
       expect(coord.isFrozen()).toBe(true);
       expect(() => {
         coord.row = 1;
-      }).toThrowError();
+      }).toThrow();
       expect(() => {
         coord.col = 1;
-      }).toThrowError();
+      }).toThrow();
     });
 
     test('deledates to super.freeze and returns the Coord', () => {
@@ -153,7 +153,7 @@ describe('Coord', () => {
       expect(coord.isFrozen()).toBe(true);
       expect(() => {
         coord.freeze();
-      }).not.toThrowError();
+      }).not.toThrow();
       expect(coord.isFrozen()).toBe(true);
     });
   });
@@ -162,7 +162,7 @@ describe('Coord', () => {
     test('throws an error', () => {
       expect(() => {
         coord.unfreeze();
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -187,7 +187,7 @@ describe('Coord', () => {
     test('throws an error if the Coord is frozen', () => {
       expect(() => {
         coord.freeze().row = 3;
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -200,7 +200,7 @@ describe('Coord', () => {
     test('throws an error if the Coord is frozen', () => {
       expect(() => {
         coord.freeze().col = 3;
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -222,7 +222,7 @@ describe('Coord', () => {
     test('throws an error if the Coord is frozen', () => {
       expect(() => {
         coord.freeze().reset({ row: 3, col: 4 });
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -240,7 +240,7 @@ describe('Coord', () => {
     test('throws an error if the Coord is frozen', () => {
       expect(() => {
         coord.freeze().addRow(3);
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -258,7 +258,7 @@ describe('Coord', () => {
     test('throws an error if the Coord is frozen', () => {
       expect(() => {
         coord.freeze().addCol(3);
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -287,7 +287,7 @@ describe('Coord', () => {
     test('throws an error if the Coord is frozen', () => {
       expect(() => {
         coord.freeze().addCoord(...coords);
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -305,7 +305,7 @@ describe('Coord', () => {
     test('throws an error if the Coord is frozen', () => {
       expect(() => {
         coord.freeze().add(new Coord(3, 4));
-      }).toThrowError();
+      }).toThrow();
     });
   });
 

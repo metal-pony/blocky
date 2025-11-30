@@ -1,5 +1,5 @@
 import {jest} from '@jest/globals';
-import { Event } from '../../index.js';
+import Event from '../../src/game/event/Event.js';
 
 describe('Event', () => {
   /** @type {string} */
@@ -33,7 +33,7 @@ describe('Event', () => {
     test('throws an error', () => {
       expect(() => {
         event.unfreeze();
-      }).toThrowError();
+      }).toThrow();
     });
   });
 
@@ -49,7 +49,7 @@ describe('Event', () => {
       test('does not throw an error', () => {
         expect(() => {
           event.add({ a: 1 });
-        }).not.toThrowError();
+        }).not.toThrow();
       });
 
       test('adds data to the event', () => {
@@ -68,7 +68,7 @@ describe('Event', () => {
       test('throws an error', () => {
         expect(() => {
           event.freeze().add({ a: 1 });
-        }).toThrowError();
+        }).toThrow();
       });
     });
   });

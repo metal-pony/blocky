@@ -1,5 +1,5 @@
 import {jest} from '@jest/globals';
-import {ZMod} from '../../index.js';
+import ZMod from '../../src/util/ZMod.js';
 
 describe('ZMod', () => {
   /** @type {ZMod} */

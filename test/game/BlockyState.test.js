@@ -1,11 +1,10 @@
 import {jest} from '@jest/globals';
-import {
-  Coord,
-  BlockyShape as Shape,
-  BlockyState,
-  Move,
-  Position
-} from "../../index";
+
+import BlockyState from '../../src/game/BlockyState.js';
+import {Shape} from '../../src/game/Shape.js';
+import Coord from '../../src/game/structs/Coord.js';
+import Position from '../../src/game/structs/Position.js';
+import Move from '../../src/game/structs/Move.js';
 
 describe('BlockyState', () => {
   let options;

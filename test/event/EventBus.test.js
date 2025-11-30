@@ -1,5 +1,6 @@
 import {jest} from '@jest/globals';
-import { Event, EventBus } from '../../index.js';
+import Event from '../../src/game/event/Event.js';
+import EventBus from '../../src/game/event/EventBus.js';
 
 describe('EventBus', () => {
   /** @type {EventBus} */
