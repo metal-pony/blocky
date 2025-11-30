@@ -1,0 +1,245 @@
+@use './vars' as v;
+
+.blocky-page {
+  --text-color: #aa3333;
+  --counter-color: #aa3333;
+  --counter-bg-color: #441111;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // padding: var(--spacing-2) var(--spacing-4) 0 var(--spacing-4);
+  color: var(--text-color);
+  font-family: "Kode Mono", monospace;
+  font-size: 16px;
+
+  @media (480px < width <= 640px) {
+    padding: var(--spacing-1) var(--spacing-3) 0 var(--spacing-3);
+    font-size: 14px;
+  }
+
+  @media (width <= 480px) {
+    padding: var(--spacing-1) var(--spacing-2) 0 var(--spacing-2);
+    font-size: 12px;
+  }
+
+  .title {
+    font-weight: 700;
+  }
+
+  .resize-controls-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .preset-size-btn {
+      background-color: var(--dark-grey);
+      color: var(--text-color);
+      font: 500 14px "Kode Mono", monospace;
+      border: var(--spacing-0) outset var(--dark);
+
+      &:active {
+        background-color: var(--dark-grey);
+        color: var(--light);
+        border: var(--spacing-0) solid var(--dark);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .zoom-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: var(--spacing-1);
+    color: var(--grey);
+
+    i:hover {
+      color: var(--light);
+    }
+
+    i.disabled {
+      color: var(--dark-grey);
+    }
+  }
+
+  .blocky-container {
+    --face-color: #f8c727;
+    --face-win-color: #27dd27;
+    --face-lose-color: #dd2727;
+
+    display: inline-flex;
+    flex-direction: column;
+    row-gap: var(--spacing-1);
+    border: var(--spacing-0) outset var(--dark);
+    justify-content: center;
+    user-select: none;
+
+    >.counter-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: var(--spacing-0) inset var(--dark);
+
+      .counter {
+        font-size: 28px;
+        font-weight: 500;
+        color: var(--counter-color);
+        background-color: var(--counter-bg-color);
+      }
+
+      .face-button {
+        border: var(--spacing-0) outset var(--dark);
+        font-size: 24px;
+
+        &:active {
+          background-color: var(--grey-8);
+          border: var(--spacing-0) inset var(--grey-9);
+        }
+      }
+
+      .face-smile { color: var(--face-color); }
+      .face-grin-stars { color: var(--face-win-color); }
+      .face-dizzy { color: var(--face-lose-color); }
+    }
+
+    >.blocky-grid {
+      --cell-size-sm: 16px;
+      --cell-size-med: 24px;
+      --cell-size-lg: 32px;
+      --cell-font-size-sm: 18px;
+      --cell-font-size-med: 21px;
+      --cell-font-size-lg: 24px;
+
+      --num1: #00aaff;
+      --num2: #00cc88;
+      --num3: #ccaa00;
+      --num4: #ff88ff;
+      --num5: #ffdd00;
+      --num6: #aaaaff;
+      --num7: #3333dd;
+      --num8: #dd3333;
+      --flag-color: #ff0000;
+      --mine-color: #ff0000;
+
+      display: inline-flex;
+      flex-direction: column;
+      border: var(--spacing-0) inset var(--dark);
+      font-weight: 700;
+
+      >.grid-row {
+        display: flex;
+        flex-direction: row;
+
+        >.blocky-cell {
+          display: flex;
+          width: var(--cell-size-sm);
+          height: var(--cell-size-sm);
+          font-size: var(--cell-font-size-sm);
+          padding: 2px;
+          background-color: var(--dark-grey);
+          border: 2px outset var(--grey-5);
+          justify-content: center;
+          align-items: center;
+
+          &.revealed, &:active :not(.flagged) {
+            background-color: var(--grey-8);
+            padding: 3px;
+            border: 1px solid var(--grey-9);
+
+            .num1 { color: var(--num1); }
+            .num2 { color: var(--num2); }
+            .num3 { color: var(--num3); }
+            .num4 { color: var(--num4); }
+            .num5 { color: var(--num5); }
+            .num6 { color: var(--num6); }
+            .num7 { color: var(--num7); }
+            .num8 { color: var(--num8); }
+          }
+
+          .flagged {
+            color: var(--flag-color);
+            text-shadow: 1px 1px 0px black;
+          }
+
+          .mine {
+            color: var(--flag-color);
+            text-shadow: 1px 1px 0px black;
+          }
+        }
+      }
+
+      &.sm {
+        >.grid-row {
+          display: flex;
+          flex-direction: row;
+
+          >.blocky-cell {
+            width: var(--cell-size-sm);
+            height: var(--cell-size-sm);
+            font-size: var(--cell-font-size-sm);
+          }
+        }
+      }
+      &.med {
+        >.grid-row {
+          display: flex;
+          flex-direction: row;
+
+          >.blocky-cell {
+            width: var(--cell-size-med);
+            height: var(--cell-size-med);
+            font-size: var(--cell-font-size-med);
+          }
+        }
+      }
+      &.lg {
+        >.grid-row {
+          display: flex;
+          flex-direction: row;
+
+          >.blocky-cell {
+            width: var(--cell-size-lg);
+            height: var(--cell-size-lg);
+            font-size: var(--cell-font-size-lg);
+          }
+        }
+      }
+    }
+  }
+}
+
+.options-btn {
+  color: var(--grey);
+
+  &:hover {
+    color: var(--light-grey);
+
+  }
+}
+
+.blocky-canvas {
+  border: 1px solid var(--dark-grey);
+  border-radius: 4px;
+
+  &.game-focus {
+    border-color: var(--grey);
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.blocky-next-piece-canvas {
+  border: 1px solid var(--dark-grey);
+  border-radius: 4px;
+
+  &.game-focus {
+    border-color: var(--grey);
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
